@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BookingService {
+public class BookingsService {
 
     private int bookingId = 0;
-    private List<Room> rooms;
-    private List<Booking> bookings = new ArrayList<>();
+    private final List<Room> rooms;
+    private final List<Booking> bookings = new ArrayList<>();
 
-    public BookingService(List<Room> rooms) {
+    public BookingsService(List<Room> rooms) {
         this.rooms = rooms;
     }
 
@@ -80,7 +80,7 @@ public class BookingService {
 
     public void printAllBookings() {
         System.out.println("LIST OF ALL BOOKINGS:");
-        bookings.stream().forEach(b -> System.out.println(b.getDescription()));
+        bookings.forEach(b -> System.out.println(b.getDescription()));
     }
 
     public List<Room> getRooms() {

@@ -15,7 +15,7 @@ public class Main {
         rooms.add(new Room(3, 3, false, true, new BigDecimal(2400)));
 
         System.out.println("hotel rooms:");
-        rooms.stream().forEach(r -> System.out.println(r.getDescription()));
+        rooms.forEach(r -> System.out.println(r.getDescription()));
         System.out.println("------------------------------------------------------------------------------------");
         System.out.println("clients:");
         var client1 = new Client("Adéla","Malíková", LocalDate.of(1993,3,13));
@@ -26,21 +26,21 @@ public class Main {
         System.out.println(client3.getDescription());
         System.out.println("------------------------------------------------------------------------------------");
 
-        var bookingService = new BookingService(rooms);
+        var bookingsService = new BookingsService(rooms);
 
-        bookingService.createBooking(3, LocalDate.of(2022,9,2), LocalDate.of(2022,9,1), false, client1, client2);
-        bookingService.createBooking(1, LocalDate.of(2022,9,2), LocalDate.of(2022,9,11), false, client1, client2);
-        bookingService.createBooking(4, LocalDate.of(2022,7,19), LocalDate.of(2022,7,26), false, client1, client2);
-        bookingService.createBooking(3, LocalDate.of(2022,7,19), LocalDate.of(2022,7,26), false, client1, client2);
-        bookingService.createBooking(3, LocalDate.of(2022,7,19), LocalDate.of(2022,9,14), false, client1, client2);
-        bookingService.createBooking(3, LocalDate.of(2022,8,27), LocalDate.of(2022,9,5), true, client1);
-        bookingService.createBooking(1, client3);
-        bookingService.createBooking(1, client1);
-        bookingService.createBooking(2, client1);
-        bookingService.cencelBooking(4);
+        bookingsService.createBooking(3, LocalDate.of(2022,9,2), LocalDate.of(2022,9,1), false, client1, client2);
+        bookingsService.createBooking(1, LocalDate.of(2022,9,2), LocalDate.of(2022,9,11), false, client1, client2);
+        bookingsService.createBooking(4, LocalDate.of(2022,7,19), LocalDate.of(2022,7,26), false, client1, client2);
+        bookingsService.createBooking(3, LocalDate.of(2022,7,19), LocalDate.of(2022,7,26), false, client1, client2);
+        bookingsService.createBooking(3, LocalDate.of(2022,7,19), LocalDate.of(2022,9,14), false, client1, client2);
+        bookingsService.createBooking(3, LocalDate.of(2022,8,27), LocalDate.of(2022,9,5), true, client1);
+        bookingsService.createBooking(1, client3);
+        bookingsService.createBooking(1, client1);
+        bookingsService.createBooking(2, client1);
+        bookingsService.cencelBooking(4);
 
         System.out.println("------------------------------------------------------------------------------------");
-        bookingService.printAllBookings();
+        bookingsService.printAllBookings();
 
     }
 }
